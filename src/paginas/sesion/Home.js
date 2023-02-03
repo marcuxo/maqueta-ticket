@@ -24,6 +24,9 @@ export const Home = () => {
         <div className=''>
           <button className=''>Ingreso Tecnicos</button>
         </div>
+        <div className=''>
+          <img src='/img/logo_ariztia.png' />
+        </div>
         <div>
           <h3 className=''>login</h3>
           <input className='' type={'text'} name="usuario" value={Ususario} onChange={(e)=>setUsusario(e.target.value)} /><span>@ariztia.com</span><br/>

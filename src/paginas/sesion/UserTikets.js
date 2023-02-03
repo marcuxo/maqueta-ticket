@@ -16,7 +16,9 @@ export const UserTikets = () => {
     <div className=''>
       <div className=''>
         <div className=''>
-          <h1 className=''>logo</h1>
+          <h1 className=''>
+            <img src='/img/logo_ariztia.png' />
+          </h1>
           <span className=''>Usuario: {state}</span>
         </div>
         <div>

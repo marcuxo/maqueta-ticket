@@ -17,7 +17,7 @@ export const UserMakeTiket = () => {
       <div className=''>
         <div className=''>
           <div className=''>
-            <h1 className=''>logo</h1>
+          <img src='/img/logo_ariztia.png' />
           </div>
           <div className=''>
             <span className=''>user: {state}</span>
