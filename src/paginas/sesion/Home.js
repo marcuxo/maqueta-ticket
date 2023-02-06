@@ -22,7 +22,7 @@ export const Home = () => {
     <div className=''>
       <div className=''>
         <div className=''>
-          <button className=''>Ingreso Tecnicos</button>
+          <button className='' onClick={()=>navigate('/login',{replace: true})}>Ingreso Tecnico</button>
         </div>
         <div className=''>
           <img src='/img/logo_ariztia.png' />
