@@ -29,6 +29,14 @@ export const UserTikets = () => {
             >
               Crear Ticket
             </button>
+            <div className="space"></div>
+            <button
+              className="btn btn-outline-danger mt-1 "
+              type="submit"
+              onClick={() => navigate('/')}
+            >
+              Salir
+            </button>
           </div>
         </div>
       </div>
