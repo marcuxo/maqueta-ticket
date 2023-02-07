@@ -57,3 +57,14 @@
   margin-bottom: 30px;
   height: 130px !important;
 }
+
+.lel {
+  background: #d1d1d1;
+  position: relative;
+  bottom: 180px;
+}
+
+.pop {
+  position: relative;
+  bottom: 130px;
+}

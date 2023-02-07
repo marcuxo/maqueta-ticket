@@ -5,7 +5,6 @@ export const Home = () => {
   const navigate = useNavigate();
   // almacena el estado del usuario
   const [Ususario, setUsusario] = useState("");
-  
 
   // verifica si ya hay un usuario guardado en el locar storage
   useEffect(() => {
@@ -28,7 +27,11 @@ export const Home = () => {
         <div className="col-5 fondo-Login rounded-4 text-center ml-1 pad border border-secondary">
           <form class="px-4 py-2" />
           <div class="mb-3">
-            <label for="exampleDropdownFormEmail1" class="form-label mb-3 h4">
+            <h2 className="py-4 rounded-5 lel">Inicio Usuario</h2>
+            <label
+              for="exampleDropdownFormEmail1"
+              className="form-label mb-3 h4 pop "
+            >
               Ingrese Correo
             </label>
 
@@ -37,7 +40,7 @@ export const Home = () => {
               value={Ususario}
               onChange={(e) => setUsusario(e.target.value)}
               type="email"
-              class="form-control"
+              className="form-control pop"
               id="exampleDropdownFormEmail1"
               placeholder="email@ariztia.com"
             />
@@ -45,13 +48,17 @@ export const Home = () => {
 
           <button
             type="submit"
-            class="btn btn-outline-danger"
+            className="btn btn-outline-danger pop"
             onClick={() => OnSubmit()}
           >
             Ingresar
           </button>
           <div className="space"></div>
-          <button type="submit" class="btn btn-outline-danger">
+          <button
+            type="submit"
+            class="btn btn-outline-danger pop"
+            onClick={() => navigate("/login")}
+          >
             Ingresar Tecnico
           </button>
         </div>
