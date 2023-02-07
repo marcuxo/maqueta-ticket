@@ -5,6 +5,7 @@ export const Login = () => {
   const navigate = useNavigate("");
   const [tecnico, setTecnico] = useState("");
   const [passTecnico, setPassTecnico] = useState("");
+ 
   return (
     <>
       <div className="container-fluid fondo-total">
@@ -65,7 +66,7 @@ export const Login = () => {
             <button
               type="submit"
               class="btn btn-outline-danger pop"
-              onClick={() => navigate("/home_tecnico")}
+              onClick={() => navigate("/home_tecnico", {state: tecnico })}
             >
               Ingresar
             </button>
