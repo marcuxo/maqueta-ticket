@@ -5,7 +5,7 @@ export const UserMakeTiket = () => {
   const [fecha, setFecha] = useState("");
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  const [urgencia, setUrgencia] = useState("")
+  const [urgencia, setUrgencia] = useState("");
   //permite navegar entre ventanas o vistas
   const navigate = useNavigate();
   //props de usuarios desde home
@@ -31,13 +31,23 @@ export const UserMakeTiket = () => {
 
   return (
     <>
-      <div className=''>
-        <div className=''>
-          <div className=''>
-          <img src='/img/logo_ariztia.png' />
-          </div>
-          <div className=''>
-            <span className=''>user: {state}</span>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
+            <h1 className="">
+              <img src="/img/logo_ariztia.png" className="imgg" alt="Logo" />
+            </h1>
+            <h5>
+              <span className="badge text-bg-danger">Usuario: {state}</span>
+            </h5>
+            <br />
+            <button
+              className="btn btn-outline-danger mt-1 "
+              type="submit"
+              onClick={() => navigate(-1)}
+            >
+              Regresar
+            </button>
           </div>
         </div>
       </div>
@@ -82,7 +92,7 @@ export const UserMakeTiket = () => {
               aria-label="Default select example"
               name="urgencia"
               value={urgencia}
-              onChange={(e)=>setUrgencia(e.target.value)}
+              onChange={(e) => setUrgencia(e.target.value)}
             >
               <option selected>Seleccione Su Urgencia</option>
               <option value="Urgente">Urgente</option>
@@ -90,22 +100,23 @@ export const UserMakeTiket = () => {
               <option value="Baja">Baja</option>
             </select>
             <input
-                      className='form-control my-3'
-                      type="text"
-                      name="fecha"
-                      value={fecha}
-                      readOnly
-                    ></input>
+              className="form-control my-3"
+              type="text"
+              name="fecha"
+              value={fecha}
+              readOnly
+            ></input>
             <div className="container-fluid">
               <div className="row">
                 <div className="col-12 ">
-                 
-                     <button className="mb-3 btn btn btn-outline-danger" onClick={() => SaveTiketUser()}>
-                      Ingresar ticket
-                    </button>
+                  <button
+                    className="mb-3 btn btn btn-outline-danger"
+                    onClick={() => SaveTiketUser()}
+                  >
+                    Ingresar ticket
+                  </button>
                 </div>
-                   
-               </div> 
+              </div>
             </div>
           </div>
         </div>

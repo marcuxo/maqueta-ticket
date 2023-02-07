@@ -16,7 +16,7 @@ export const UserTikets = () => {
         <div className="row">
           <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
             <h1 className="">
-              <img src="/img/logo_ariztia.png" className="imgg" alt='Logo' />
+              <img src="/img/logo_ariztia.png" className="imgg" alt="Logo" />
             </h1>
             <h5>
               <span className="badge text-bg-danger">Usuario: {state}</span>
@@ -40,15 +40,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -58,15 +60,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -77,15 +81,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -96,15 +102,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -115,15 +123,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -134,15 +144,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -153,15 +165,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -172,15 +186,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -191,15 +207,17 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
@@ -210,22 +228,22 @@ export const UserTikets = () => {
             <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
               <div className="col-8">
                 <div className="row">
-                  <div className='my-2'>Titulo:No conecta</div>
-                  <div className='mb-2'>Usuario: tu mama</div>
-                  <div className='mb-5'>Descripcion: no tengo conexion a interner</div>
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-5">
+                    Descripcion: no tengo conexion a interner
+                  </div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
-                  <div className='my-2'>Fecha: 02/06/2022</div>
-                  <div className='mb-2'>Id:022</div>
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
                   <div>Urgencia:muy urgente</div>
                 </div>
               </div>
             </div>
           </div>
-
-          
         </div>
       </div>
     </>
