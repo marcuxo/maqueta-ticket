@@ -31,23 +31,13 @@ export const UserMakeTiket = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
-            <h1 className="">
-              <img src="/img/logo_ariztia.png" className="imgg" />
-            </h1>
-            <h5>
-              <span className="badge text-bg-danger">Usuario: {state}</span>
-            </h5>
-            <br/>
-            <button
-              className="btn btn-outline-danger mt-1 "
-              type="submit"
-              onClick={() => navigate(-1)}
-            >
-              Regresar
-            </button>
+      <div className=''>
+        <div className=''>
+          <div className=''>
+          <img src='/img/logo_ariztia.png' />
+          </div>
+          <div className=''>
+            <span className=''>user: {state}</span>
           </div>
         </div>
       </div>

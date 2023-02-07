@@ -19,10 +19,10 @@ export const Home = () => {
   };
 
   return (
-    <div className="container-fluid fondo-total">
-      <div className="row">
-        <div className="col-6 text-center le">
-          <img src="/img/logo_ariztia.png" />
+    <div className=''>
+      <div className=''>
+        <div className=''>
+          <button className=''>Ingreso Tecnicos</button>
         </div>
         <div className="col-5 fondo-Login rounded-4 text-center ml-1 pad border border-secondary">
           
