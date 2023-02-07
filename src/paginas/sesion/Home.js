@@ -5,6 +5,7 @@ export const Home = () => {
   const navigate = useNavigate();
   // almacena el estado del usuario
   const [Ususario, setUsusario] = useState("");
+  
 
   // verifica si ya hay un usuario guardado en el locar storage
   useEffect(() => {
