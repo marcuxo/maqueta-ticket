@@ -1,58 +1,125 @@
-import React from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const UserMakeTiket = () => {
+  const [fecha, setFecha] = useState("");
+  const [titulo, setTitulo] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [urgencia, setUrgencia] = useState("")
   //permite navegar entre ventanas o vistas
   const navigate = useNavigate();
   //props de usuarios desde home
-  const {state} = useLocation();
+  const { state } = useLocation();
 
   //logica para agregar tiket en base de datos
   const SaveTiketUser = async () => {
-    navigate('/tickets',{state: state})
+    // navigate("/tickets", { state: state });
+    console.log(fecha, titulo, descripcion, urgencia, state);
+  };
+
+  function mutarFecha() {
+    let fechita = new Date();
+    // console.log(fechita.toLocaleString());
+    setFecha(fechita.toLocaleString());
   }
+
+  useEffect(() => {
+    setInterval(() => {
+      mutarFecha();
+    }, 1000);
+  }, []);
 
   return (
     <>
-      <div className=''>
-        <div className=''>
-          <div className=''>
-          <img src='/img/logo_ariztia.png' />
-          </div>
-          <div className=''>
-            <span className=''>user: {state}</span>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
+            <h1 className="">
+              <img src="/img/logo_ariztia.png" className="imgg" />
+            </h1>
+            <h5>
+              <span className="badge text-bg-danger">Usuario: {state}</span>
+            </h5>
+            <br/>
+            <button
+              className="btn btn-outline-danger mt-1 "
+              type="submit"
+              onClick={() => navigate(-1)}
+            >
+              Regresar
+            </button>
           </div>
         </div>
       </div>
 
-      <div className=''>
-        <div className=''>
-          <div className=''>
-            <label className=''>Usuario:</label>
-            <input className='' type={'text'} value={state} />
+      <div className="container-fluid espaciador">
+        <div className="row">
+          <div className="col-6 ticketcard rounded-4">
+            <div className="input-group mb-3 mt-4">
+              <span className="input-group-text" id="inputGroup-sizing-default">
+                Titulo
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+                name="titulo"
+                value={titulo}
+                onChange={(e) => setTitulo(e.target.value)}
+              ></input>
+            </div>
+
+            <div className="form-floating">
+              <textarea
+                className="form-control jej"
+                placeholder="Agregue Descripcion"
+                id="floatingTextarea2"
+                name="descripcion"
+                value={descripcion}
+                onChange={(e) => setDescripcion(e.target.value)}
+              ></textarea>
+              <label htmlFor="floatingTextarea2">Descripcion</label>
+            </div>
           </div>
-          <div className=''>
-            <label className=''>Titulo:</label>
-            <input className='' type={'text'} />
-          </div>
-          <div className=''>
-            <label className=''>Descripcion:</label>
-            <textarea rows={5}/>
-          </div>
-          <div className=''>
-            <label className=''>Urgencia:</label>
-            <select className=''>
-              <option>urgente</option>
-              <option>mediana</option>
-              <option>baja</option>
+          <div className="col-6 rounded-4 ticketcard">
+            <h5>
+              <span className="badge text-bg-danger">Usuario: {state}</span>
+            </h5>
+            <label>Urgencia:</label>
+            <select
+              className="form-select w-50 my-3"
+              aria-label="Default select example"
+              name="urgencia"
+              value={urgencia}
+              onChange={(e)=>setUrgencia(e.target.value)}
+            >
+              <option selected>Seleccione Su Urgencia</option>
+              <option value="Urgente">Urgente</option>
+              <option value="Mediana">Mediana</option>
+              <option value="Baja">Baja</option>
             </select>
-          </div>
-          <div className=''>
-            <button className='' onClick={()=>SaveTiketUser()}>Ingresar ticket</button>
+            <input
+                      className='form-control my-3'
+                      type="text"
+                      name="fecha"
+                      value={fecha}
+                      readOnly
+                    ></input>
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-12 ">
+                 
+                     <button className="mb-3 btn btn btn-outline-danger" onClick={() => SaveTiketUser()}>
+                      Ingresar ticket
+                    </button>
+                </div>
+                   
+               </div> 
+            </div>
           </div>
         </div>
       </div>
     </>
-    
-  )
-}
+  );
+};
