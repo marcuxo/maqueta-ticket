@@ -6,6 +6,7 @@ export const UserMakeTiket = () => {
   const [titulo, setTitulo] = useState("");
   const [descripcion, setDescripcion] = useState("");
   const [urgencia, setUrgencia] = useState("");
+  const [ubicacion, setUbicacion] = useState('');
   //permite navegar entre ventanas o vistas
   const navigate = useNavigate();
   //props de usuarios desde home
@@ -14,7 +15,7 @@ export const UserMakeTiket = () => {
   //logica para agregar tiket en base de datos
   const SaveTiketUser = async () => {
      navigate("/tickets", { state: state });
-    console.log(fecha, titulo, descripcion, urgencia, state);
+    console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);
   };
 
   function mutarFecha() {
@@ -69,7 +70,9 @@ export const UserMakeTiket = () => {
                 onChange={(e) => setTitulo(e.target.value)}
               ></input>
             </div>
-
+            <div className="container-fluid">
+              <div className="row">
+            <div className="col-6">
             <div className="form-floating">
               <textarea
                 className="form-control jej"
@@ -80,6 +83,25 @@ export const UserMakeTiket = () => {
                 onChange={(e) => setDescripcion(e.target.value)}
               ></textarea>
               <label htmlFor="floatingTextarea2">Descripcion</label>
+            </div>
+           </div> 
+           <div className="col-6">
+            <div className="input-group">
+           <span className="input-group-text" id="inputGroup-sizing-default">
+                Ubicacion
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+                name="ubicacion"
+                value={ubicacion}
+                onChange={(e) => setUbicacion(e.target.value)}
+              ></input>
+              </div>
+            </div>
+            </div>
             </div>
           </div>
           <div className="col-6 rounded-4 ticketcard">

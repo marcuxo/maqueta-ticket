@@ -33,7 +33,7 @@ export const UserTikets = () => {
             <button
               className="btn btn-outline-danger mt-1 "
               type="submit"
-              onClick={() => navigate('/')}
+              onClick={() => navigate("/")}
             >
               Salir
             </button>
@@ -50,16 +50,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -72,16 +73,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -94,16 +96,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -116,16 +119,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -138,16 +142,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -160,16 +165,17 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
@@ -182,24 +188,45 @@ export const UserTikets = () => {
                 <div className="row">
                   <div className="my-2">Titulo:No conecta</div>
                   <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-5">
+                  <div className="mb-2">
                     Descripcion: no tengo conexion a interner
                   </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
               </div>
               <div className="col-4">
                 <div className="row">
                   <div className="my-2">Fecha: 02/06/2022</div>
                   <div className="mb-2">Id:022</div>
-                  <div>Urgencia:muy urgente</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
                   <div>Estado: Cerrado</div>
                 </div>
               </div>
             </div>
           </div>
-          
 
-         
+          <div className="col-6">
+            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
+              <div className="col-8">
+                <div className="row">
+                  <div className="my-2">Titulo:No conecta</div>
+                  <div className="mb-2">Usuario: tu mama</div>
+                  <div className="mb-2">
+                    Descripcion: no tengo conexion a interner
+                  </div>
+                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
+                </div>
+              </div>
+              <div className="col-4">
+                <div className="row">
+                  <div className="my-2">Fecha: 02/06/2022</div>
+                  <div className="mb-2">Id:022</div>
+                  <div className="mb-2">Urgencia:muy urgente</div>
+                  <div>Estado: Cerrado</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

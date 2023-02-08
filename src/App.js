@@ -19,4 +19,23 @@ function App() {
   );
 }
 
+export function setSelectEstado () {
+  
+switch(setSelectEstado) {
+  case 1:  
+    
+    break
+
+  case 2:  
+    
+    break
+
+  case 3:
+    <div class="modal-dialog modal-sm">...</div>
+
+    break
+}
+
+}
+
 export default App;
