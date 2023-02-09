@@ -10,28 +10,23 @@ export const HomeTecnico = () => {
   const { state } = useLocation();
   const [descripcionTec, setDescripcionTec] = useState("");
   const [selectEstado, setSelectEstado] = useState("");
+  const [modal, setModal] = useState(false);
 
   function seleccionador() {
-  
-
     switch (selectEstado) {
       case "CERRADO":
-        console.log("EL TICKET ESTA CERRADO")
-
-        
+        setModal(!modal);
 
         break;
-    
+
       default:
         break;
     }
-
   }
 
   useEffect(() => {
-    seleccionador()
-  }, [selectEstado])
-  
+    seleccionador();
+  }, [selectEstado]);
 
   return (
     <>
@@ -58,7 +53,8 @@ export const HomeTecnico = () => {
       <div class="container-fluid text-center espaciador">
         <div class="row align-items-start">
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-             Tickets Sin Asignar  {/* //Aqui comienzan los tickets sin guardar// */}
+            Tickets Sin Asignar{" "}
+            {/* //Aqui comienzan los tickets sin guardar// */}
             <div className="col">
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12">
@@ -89,11 +85,10 @@ export const HomeTecnico = () => {
                 </div>
               </div>
             </div>
-              
           </div>
 
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-            Asignados  {/*Aqui comienzan los tickets asignados*/}
+            Asignados {/*Aqui comienzan los tickets asignados*/}
             <div className="col">
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12">
@@ -131,10 +126,10 @@ export const HomeTecnico = () => {
                 </div>
               </div>
             </div>
-              </div>
+          </div>
 
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-            Mis Asignados  {/* Aqui comienzan los tickets personales */}
+            Mis Asignados {/* Aqui comienzan los tickets personales */}
             <div className="col">
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12">
@@ -154,7 +149,12 @@ export const HomeTecnico = () => {
                     </div>
 
                     <div className="">
-                      <span className="small">Estado:</span> {selectEstado==="PROCESO"?<BsArrowRepeat />:<BsFillUnlockFill />}
+                      <span className="small">Estado:</span>{" "}
+                      {selectEstado === "PROCESO" ? (
+                        <BsArrowRepeat />
+                      ) : (
+                        <BsFillUnlockFill />
+                      )}
                       <div>
                         <span className="small">
                           Asignado a: Benjamin Lopez
@@ -164,11 +164,11 @@ export const HomeTecnico = () => {
                         class="form-select btn btn-outline-danger mt-1 small"
                         aria-label="Default select example"
                         name="selectEstado"
-                          value={selectEstado}
-                          onChange={(e) => setSelectEstado(e.target.value)}
+                        value={selectEstado}
+                        onChange={(e) => setSelectEstado(e.target.value)}
                       >
                         <option selected>Modificar Estado de Ticket</option>
-                        <option value='ABIERTO'>Ticket Abierto</option>
+                        <option value="ABIERTO">Ticket Abierto</option>
                         <option value="PROCESO">Ticket en Proceso</option>
                         <option value="CERRADO">Cerrar Ticket</option>
                       </select>
@@ -177,10 +177,10 @@ export const HomeTecnico = () => {
                 </div>
               </div>
             </div>
-            
-              </div>
+          </div>
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-            Tickets Cerrados  {/* Aqui comienzan los tickets que ya estan cerrados */}
+            Tickets Cerrados{" "}
+            {/* Aqui comienzan los tickets que ya estan cerrados */}
             <div className="col">
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12">
@@ -207,41 +207,54 @@ export const HomeTecnico = () => {
                 </div>
               </div>
             </div>
-           
-            
           </div>
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+      {modal ? (
+        <>
+          <div class="modal show " tabindex="-1" style={{ display: "block" }}>
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h3 class="modal-title fs-5" id="exampleModalLabel">
+                    Desea Cerrar Ticket?
+                  </h3>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    onClick={() => setModal(!modal)}
+                  ></button>
+                </div>
+                <div class="mb-3 mx-4">
+                  <label for="message-text" class="col-form-label">
+                    Conclusion Ticket:
+                  </label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
 
-<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <h1 className="modal-title fs-5" id="exampleModalLabel">New message</h1>
-        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div className="modal-body">
-        <form>
-          <div className="mb-3">
-            <label htmlFor="recipient-name" className="col-form-label">Recipient:</label>
-            <input type="text" className="form-control" id="recipient-name"/>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-outline-info"
+                    onClick={() => setModal(!modal)}
+                  >
+                    Volver
+                  </button>
+                  <button
+                    className="btn btn-outline-danger mt-1 "
+                    type="submit"
+                  >
+                    Cerrar Ticket
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mb-3">
-            <label htmlFor="message-text" className="col-form-label">Message:</label>
-            <textarea className="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-      
+        </>
+      ) : null}
     </>
   );
 };
