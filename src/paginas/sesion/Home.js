@@ -42,7 +42,7 @@ export const Home = () => {
               type="email"
               className="form-control pop"
               id="exampleDropdownFormEmail1"
-              placeholder="email@ariztia.com"
+              placeholder="Email@ariztia.com"
             />
           </div>
 

@@ -31,7 +31,7 @@ export const Login = () => {
                 type="email"
                 class="form-control pop"
                 id="exampleDropdownFormEmail1"
-                placeholder="email@ariztia.com"
+                placeholder="Email@ariztia.com"
               />
             </div>
 
@@ -51,12 +51,12 @@ export const Login = () => {
                 type="password"
                 class="form-control pop"
                 id="passwordTecnico"
-                placeholder="contraseña"
+                placeholder="Contraseña"
               />
             </div>
 
             <button
-              className="btn btn-outline-danger mt-1 pop"
+              className="btn btn-outline-danger pop"
               type="submit"
               onClick={() => navigate(-1)}
             >

@@ -241,7 +241,7 @@ export const HomeTecnico = () => {
                     class="btn btn-outline-info"
                     onClick={() => setModal(!modal)}
                   >
-                    Volver
+                    Cancelar
                   </button>
                   <button
                     className="btn btn-outline-danger mt-1 "

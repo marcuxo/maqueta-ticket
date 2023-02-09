@@ -40,189 +40,98 @@ export const UserTikets = () => {
           </div>
         </div>
       </div>
-
-      <div className="container-fluid espaciador">
-        <div className="row">
-          {/* Aqui inicia Tarjeta de ticket */}
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
+      <div class="container-fluid text-center espaciador">
+        <div class="row align-items-start">
+          <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
+            Tickets Abiertos {/* Aqui inicia Tarjeta de ticket */}
+            <div className="col-12">
+              <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Titulo:No conecta</div>
+                    <div className="mb-2">Usuario: tu mama</div>
+                    <div className="mb-2">
+                      Descripcion: no tengo conexion a interner
+                    </div>
+                    <div className="mb-4">Ubicacion: Oficina Calidad</div>
                   </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
+                </div>
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Fecha: 02/06/2022</div>
+                    <div className="mb-2">Id:022</div>
+                    <div className="mb-2">Urgencia:muy urgente</div>
+                    <div>Estado: Cerrado</div>
+                  </div>
                 </div>
               </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
+            </div>
+            <div className="col-12">
+              <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Titulo:No conecta</div>
+                    <div className="mb-2">Usuario: tu mama</div>
+                    <div className="mb-2">
+                      Descripcion: no tengo conexion a interner
+                    </div>
+                    <div className="mb-4">Ubicacion: Oficina Calidad</div>
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Fecha: 02/06/2022</div>
+                    <div className="mb-2">Id:022</div>
+                    <div className="mb-2">Urgencia:muy urgente</div>
+                    <div>Estado: Cerrado</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
+          <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
+            Tickets Cerrados {/*Aqui comienzan los tickets Cerrados*/}
+            <div className="col-12">
+              <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Titulo:No conecta</div>
+                    <div className="mb-2">Usuario: tu mama</div>
+                    <div className="mb-2">
+                      Descripcion: no tengo conexion a interner
+                    </div>
+                    <div className="mb-4">Ubicacion: Oficina Calidad</div>
                   </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Fecha: 02/06/2022</div>
+                    <div className="mb-2">Id:022</div>
+                    <div className="mb-2">Urgencia:muy urgente</div>
+                    <div>Estado: Cerrado</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
+            <div className="col-12">
+              <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Titulo:No conecta</div>
+                    <div className="mb-2">Usuario: tu mama</div>
+                    <div className="mb-2">
+                      Descripcion: no tengo conexion a interner
+                    </div>
+                    <div className="mb-4">Ubicacion: Oficina Calidad</div>
                   </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
                 </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
+                <div className="col-12">
+                  <div className="row">
+                    <div className="my-2">Fecha: 02/06/2022</div>
+                    <div className="mb-2">Id:022</div>
+                    <div className="mb-2">Urgencia:muy urgente</div>
+                    <div>Estado: Cerrado</div>
                   </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
-                  </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
-                  </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
-                  </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-6">
-            <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-              <div className="col-8">
-                <div className="row">
-                  <div className="my-2">Titulo:No conecta</div>
-                  <div className="mb-2">Usuario: tu mama</div>
-                  <div className="mb-2">
-                    Descripcion: no tengo conexion a interner
-                  </div>
-                  <div className="mb-4">Ubicacion: Oficina Calidad</div>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row">
-                  <div className="my-2">Fecha: 02/06/2022</div>
-                  <div className="mb-2">Id:022</div>
-                  <div className="mb-2">Urgencia:muy urgente</div>
-                  <div>Estado: Cerrado</div>
                 </div>
               </div>
             </div>
