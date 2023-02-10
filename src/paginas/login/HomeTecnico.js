@@ -4,6 +4,7 @@ import { BsFillLockFill } from "react-icons/bs";
 import { BsFillUnlockFill } from "react-icons/bs";
 import { BsArrowRepeat } from "react-icons/bs";
 import { setSelectEstado } from "../../App";
+import { GetTicketsTecnico } from "../../api/GetTicketTecnico.api";
 
 export const HomeTecnico = () => {
   const navigate = useNavigate();
@@ -24,9 +25,17 @@ export const HomeTecnico = () => {
     }
   }
 
+  const getAllTickets = async ()=>{
+      const arrlyst = await GetTicketsTecnico({state})
+  }
+
   useEffect(() => {
     seleccionador();
   }, [selectEstado]);
+
+  useEffect(() => {
+    getAllTickets()
+  }, []);
 
   return (
     <>
@@ -55,6 +64,8 @@ export const HomeTecnico = () => {
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             Tickets Sin Asignar{" "}
             {/* //Aqui comienzan los tickets sin guardar// */}
+
+            
             <div className="col">
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12">

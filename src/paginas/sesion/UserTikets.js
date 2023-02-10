@@ -9,16 +9,18 @@ export const UserTikets = () => {
   const navigate = useNavigate();
   //props de usuarios desde home
   const { state } = useLocation();
-  const [ticket_list, setTicket_list] = useState([])
+  const [ticket_close, setTicket_close] = useState([])
+  const [ticket_others, setTicket_others] = useState([])
 
   const OnCreateTicket = async () => {
     navigate("/crear_ticket", { state: state });
   };
 
   const getTickets = async () => {
-    let respons = await GetTickets()
-      setTicket_list(respons)
-      // console.log(respons)
+    let respons = await GetTickets({state})
+      setTicket_close(respons.arr_close)
+      setTicket_others(respons.arr_others)
+      console.log(respons)
   }
 
   useEffect(() => {
@@ -46,7 +48,6 @@ export const UserTikets = () => {
             >
               Crear Ticket
             </button>
-            <span onClick={()=>console.log(ticket_list)}>array</span>
             <div className="space"></div>
             <button
               className="btn btn-outline-danger mt-1 "
@@ -58,13 +59,13 @@ export const UserTikets = () => {
           </div>
         </div>
       </div>
-      <div class="container-fluid text-center espaciador">
-        <div class="row align-items-start">
-          <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
+      <div className="container-fluid text-center espaciador">
+        <div className="row align-items-start">
+          <div className="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Tickets </b>{/* Aqui inicia Tarjeta de ticket */}
             {
-              ticket_list.map(ticket=>
-                <div className="col-12">
+              ticket_others.map(ticket=>
+                <div className="col-12" key={ticket._id}>
                   <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
                     <div className="col-12">
                       <div className="row">
@@ -78,7 +79,7 @@ export const UserTikets = () => {
                     </div>
                     <div className="col-12">
                       <div className="row">
-                        <div className="my-2"><b>Fecha: </b> {ticket.create_date.split('T',1)[0]}</div>
+                        <div className="my-2"><b>Fecha: </b> {ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
                         <div className="mb-2"><b>Id: </b>{ticket.id_ticket}</div>
                         <div className="mb-2"><b>Urgencia: </b>{ticket.urgencia}</div>
                         <div className="mb-4"><b>Estado: </b>{ticket.estado==="PROCESO"?<BsArrowRepeat/>:<BsFillUnlockFill/>}</div>
@@ -91,30 +92,36 @@ export const UserTikets = () => {
           </div>
 
           {/*Aqui comienzan los tickets Cerrados*/}
-          <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
+
+          
+          <div className="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Tickets Cerrados </b>
-            <div className="col-12">
+            {ticket_close.map(ticket=>
+              <div className="col-12"key={ticket._id}>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
                 <div className="col-12">
                   <div className="row">
-                    <div className="my-2"><b>Titulo:</b>No conecta</div>
-                    <div className="mb-2"><b>Usuario:</b>tu mama</div>
+                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
                     <div className="mb-2">
-                      <b>Descripcion: </b>no tengo conexion a interner
+                      <b>Descripcion: </b>{ticket.descripcion}
                     </div>
-                    <div className="mb-4"><b>Ubicacion: </b>Oficina Calidad</div>
+                    <div className="mb-4"><b>Ubicacion: </b>{ticket.ubicacion}</div>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="row">
-                    <div className="my-2"><b>Fecha:</b>02/06/2022</div>
-                    <div className="mb-2"><b>Id:</b>022</div>
-                    <div className="mb-2"><b>Urgencia:</b>muy urgente</div>
-                    <div className="mb-4"><b>Estado:</b><BsFillLockFill/></div>
+                    <div className="my-2"><b>Fecha De Creacion: </b>{ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
+                    <div className="my-2"><b>Fecha De Cierre: </b>{ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
+                    <div className="mb-2"><b>Id:</b>{ticket.id_ticket}</div>
+                    <div className="mb-2"><b>Urgencia:</b>{ticket.urgencia}</div>
+                    <div className="mb-4"><b>Estado:</b>{ticket.estado==="CERRADO"?<BsFillLockFill/>:<BsFillUnlockFill/>}</div>
                   </div>
                 </div>
               </div>
             </div>
+            )
+          }
             
           </div>
         </div>

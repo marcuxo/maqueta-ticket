@@ -25,8 +25,8 @@ export const Home = () => {
           <img src="/img/logo_ariztia.png" />
         </div>
         <div className="col-5 fondo-Login rounded-4 text-center ml-1 pad border border-secondary">
-          <form class="px-4 py-2" />
-          <div class="mb-3">
+          <form className="px-4 py-2" />
+          <div className="mb-3">
             <h2 className="py-4 rounded-5 lel">Inicio Usuario</h2>
             <label
               for="exampleDropdownFormEmail1"
