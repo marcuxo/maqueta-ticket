@@ -11,6 +11,7 @@ export const HomeTecnico = () => {
   const [selectEstado, setSelectEstado] = useState("");
   const [modal, setModal] = useState(false);
   const [all_tickets, setAll_tickets] = useState([]);
+  const [close_tickets, setClose_tickets] = useState([])
 
 
   function seleccionador() {
@@ -31,9 +32,10 @@ export const HomeTecnico = () => {
 
   const getAll_tickets = async () => {
     let respons = await GetTicketsTecnico({state})
-      setAll_tickets(respons.arr_all_tickets)
+      setAll_tickets(respons.arr_all_tickets, respons.arr_close_tickets)
+      
 
-      console.log(respons.arr_all_tickets)
+      console.log(respons.arr_all_tickets, respons.arr_close_tickets)
   }
 
   useEffect(() => {
@@ -210,7 +212,7 @@ export const HomeTecnico = () => {
             <b>Tickets Cerrados</b>
             {/* Aqui comienzan los tickets que ya estan cerrados */}
             <div className="col">
-            {all_tickets.map(ticket=>
+            {close_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
                   <div className="row">
