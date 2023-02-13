@@ -12,7 +12,7 @@ export const UserMakeTiket = () => {
   //props de usuarios desde home
   const { state } = useLocation();
 
-  //logica para agregar tiket en base de datos
+  //logica para agregar ticket en base de datos
   const SaveTiketUser = async () => {
      navigate("/tickets", { state: state });
     console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);

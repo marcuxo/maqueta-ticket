@@ -11,8 +11,9 @@ export const HomeTecnico = () => {
   const [selectEstado, setSelectEstado] = useState("");
   const [modal, setModal] = useState(false);
   const [all_tickets, setAll_tickets] = useState([]);
-  const [close_tickets, setClose_tickets] = useState([])
-
+  const [close_tickets, setClose_tickets] = useState([]);
+  const [open_tickets, setOpen_tickets] = useState([]);
+  const [process_tickets, setporcess_tickets] = useState([]);
 
   function seleccionador() {
     switch (selectEstado) {
@@ -32,10 +33,10 @@ export const HomeTecnico = () => {
 
   const getAll_tickets = async () => {
     let respons = await GetTicketsTecnico({state})
-      setAll_tickets(respons.arr_all_tickets, respons.arr_close_tickets)
+      setAll_tickets(respons.arr_all_tickets, respons.arr_close_tickets, respons.open_tickets, respons.process_tickets)
       
-
-      console.log(respons.arr_all_tickets, respons.arr_close_tickets)
+        //aqui mas de lo mismo, lo hice para ver si funcionaba, tampoco se si funciono
+      console.log(respons.arr_all_tickets, respons.arr_close_tickets, respons.arr_open_tickets, respons.arr_process_ticket)
   }
 
   useEffect(() => {
@@ -49,6 +50,7 @@ export const HomeTecnico = () => {
   useEffect(() => {
    getAll_tickets() 
   }, []);
+  //lo hice porque estaba tratando de hacer lo de arriba, la verdad de la milanesa no se si sirvio xd
 
   return (
     <>
@@ -78,7 +80,7 @@ export const HomeTecnico = () => {
             <b>Tickets Sin Asignar</b>
             {/* //Aqui comienzan los tickets sin guardar// */}
 
-            
+            {/* aqui me mostraba todo lo de un usuario pero despues con los filtros me dejo de mostrar y despues se fue todo a la verga XDDDDD */}
             <div className="col">
            {all_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
@@ -99,7 +101,8 @@ export const HomeTecnico = () => {
                     <div className="col-12 mb-3">
                       <b>Descripcion:</b>{ticket.descripcion}
                     </div>
-
+{/* todo lo que es ticket.algo es por lo que estaba probando y se muestran solo los tickets del usuario que ingrese, si ingreso como tecnico con el nombre de Karen, se ven todos lo tickets de la karen pero si ingreso mi nombre no me salen todos los tickets, de ningun tipo :).
+igual puse el .map en todo lo que pude, osea fue solo al principio de las columnas (psdt: son las 2:42 y no se que mas hacer, no se nada mas y no se me ocurre nada, me quiero autoasesinar:)) */}
                     <div className="">
                       <button
                         className="btn btn-outline-danger mt-1 small"
