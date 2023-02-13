@@ -5,7 +5,6 @@ import { Home } from "./paginas/sesion/Home";
 import { UserMakeTiket } from "./paginas/sesion/UserMakeTiket";
 import { UserTikets } from "./paginas/sesion/UserTikets";
 import { HomeTecnico } from "./paginas/login/HomeTecnico";
-import { TicketSinAsignar } from "./paginas/login/TicketSinAsignar"
 
 function App() {
   return (

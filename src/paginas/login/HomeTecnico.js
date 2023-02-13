@@ -11,11 +11,7 @@ export const HomeTecnico = () => {
   const [selectEstado, setSelectEstado] = useState("");
   const [modal, setModal] = useState(false);
   const [all_tickets, setAll_tickets] = useState([]);
-  const [fecha, setFecha] = useState("");
-  const [titulo, setTitulo] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [urgencia, setUrgencia] = useState("");
-  const [ubicacion, setUbicacion] = useState('');
+
 
   function seleccionador() {
     switch (selectEstado) {
@@ -168,7 +164,7 @@ export const HomeTecnico = () => {
                   <div className="row">
                     <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura:</b> 04/06/2022</div>
+                    <div className="col-6"><b>Fecha Apertura:</b>{ticket.start_date}</div>
                     <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
@@ -220,7 +216,7 @@ export const HomeTecnico = () => {
                   <div className="row">
                     <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha De Cierre:</b> 08/06/2022</div>
+                    <div className="col-6"><b>Fecha De Cierre:</b>{ticket.close_date}</div>
                     <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
