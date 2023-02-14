@@ -4,6 +4,7 @@ import { BsFillLockFill } from "react-icons/bs";
 import { BsFillUnlockFill } from "react-icons/bs";
 import { BsArrowRepeat } from "react-icons/bs";
 import { GetTicketsTecnico } from "../../api/GetTicketTecnico.api";
+import { AsingTicket } from "../../api/AsingTicket.api";
 
 export const HomeTecnico = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ export const HomeTecnico = () => {
   const [all_tickets, setAll_tickets] = useState([]);
   const [close_tickets, setClose_tickets] = useState([]);
   const [open_tickets, setOpen_tickets] = useState([]);
-  const [process_tickets, setporcess_tickets] = useState([]);
+  const [my_tickets, setMy_tickets] = useState([]);
 
   function seleccionador() {
     switch (selectEstado) {
@@ -33,10 +34,23 @@ export const HomeTecnico = () => {
 
   const getAll_tickets = async () => {
     let respons = await GetTicketsTecnico({state})
-      setAll_tickets(respons.arr_all_tickets, respons.arr_close_tickets, respons.open_tickets, respons.process_tickets)
-      
+    // console.log(respons)
+      setAll_tickets(respons.arr_all_tickets)
+      setClose_tickets(respons.arr_close_tickets)
+      setOpen_tickets(respons.arr_open_tickets)
+      setMy_tickets(respons.arr_my_tickets)
+
         //aqui mas de lo mismo, lo hice para ver si funcionaba, tampoco se si funciono
-      console.log(respons.arr_all_tickets, respons.arr_close_tickets, respons.arr_open_tickets, respons.arr_process_ticket)
+  }
+
+  const Asignar_ticket = async (id) => {
+    let is_agregar = window.confirm('Asignarme ticket')
+    if(is_agregar){
+      let isasing_ = await AsingTicket({id:id,state})
+      if(isasing_.success){window.location.reload()}
+    }else{
+      alert('No te asignaste el ticket');
+    }
   }
 
   useEffect(() => {
@@ -107,6 +121,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                       <button
                         className="btn btn-outline-danger mt-1 small"
                         type="submit"
+                        onClick={()=>Asignar_ticket(ticket._id)}
                       >
                         Tomar Ticket
                       </button>
@@ -121,13 +136,15 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Asignados</b> {/*Aqui comienzan los tickets asignados*/}
             <div className="col">
-            {all_tickets.map(ticket=>
+            {open_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
                   <div className="row">
                     <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura: </b>04/06/2022</div>
+                    <div className="col-6"><b>Fecha Apertura: </b>
+                    <br/>
+                    {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
                     <div className="col-6"><b>Id: </b>{ticket.id_ticket}</div>
                     <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
@@ -143,7 +160,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                       <span className="small"><b>Estado:</b></span>
                       <BsFillUnlockFill />
                       <div>
-                        <span className="small"><b>Asignado a:</b> Miguel Salas</span>
+                        <span className="small"><b>Asignado a:</b> {ticket.asignado}</span>
                       </div>
                       <div className="">
                         <button
@@ -163,13 +180,15 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Mis Asignados</b> {/* Aqui comienzan los tickets personales */}
             <div className="col">
-            {all_tickets.map(ticket=>
+            {my_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12" key={ticket._id}>
                   <div className="row">
                     <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura:</b>{ticket.start_date}</div>
+                    <div className="col-6"><b>Fecha Apertura:</b>
+                    <br/>
+                    {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
                     <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
@@ -190,7 +209,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                       )}
                       <div>
                         <span className="small">
-                          <b>Asignado a:</b> Benjamin Lopez
+                          <b>Asignado a:</b> {ticket.asignado}
                         </span>
                       </div>
                       <select
@@ -221,7 +240,9 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                   <div className="row">
                     <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha De Cierre:</b>{ticket.close_date}</div>
+                    <div className="col-6"><b>Fecha De Cierre:</b>
+                    <br/>
+                    {ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
                     <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
@@ -236,7 +257,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                     <div className="">
                       <span className="small"><b>Estado:</b></span> <BsFillLockFill />
                     </div>
-                    <span className="small"><b>Cerrado Por:</b> Benjamin Lopez</span>
+                    <span className="small"><b>Cerrado Por:</b> {ticket.asignado}</span>
                   </div>
                 </div>
               </div>)}

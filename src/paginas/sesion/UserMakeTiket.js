@@ -15,7 +15,7 @@ export const UserMakeTiket = () => {
   //logica para agregar ticket en base de datos
   const SaveTiketUser = async () => {
      navigate("/tickets", { state: state });
-    console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);
+    // console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);
   };
 
   function mutarFecha() {
