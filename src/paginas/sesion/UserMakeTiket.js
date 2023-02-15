@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { SaveTickets } from "../../api/SaveTickets.api";
 
 export const UserMakeTiket = () => {
   const [fecha, setFecha] = useState("");
@@ -14,7 +15,13 @@ export const UserMakeTiket = () => {
 
   //logica para agregar ticket en base de datos
   const SaveTiketUser = async () => {
-     navigate("/tickets", { state: state });
+    let ticket_save = await SaveTickets({state, fecha, titulo, descripcion, urgencia, ubicacion})
+    console.log(ticket_save);
+    if (ticket_save.success) {
+      await alert(ticket_save.msg)
+      navigate("/tickets", { state: state });
+    }
+     
     // console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);
   };
 

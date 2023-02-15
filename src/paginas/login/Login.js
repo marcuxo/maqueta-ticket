@@ -5,6 +5,19 @@ export const Login = () => {
   const navigate = useNavigate("");
   const [tecnico, setTecnico] = useState("");
   const [passTecnico, setPassTecnico] = useState("");
+
+  async function filtro() {
+    // console.log('filtro',tecnico,passTecnico);
+    let correo = tecnico.split("@")
+    console.log(correo);
+    if (correo[1]==="ariztia.com") {
+      // console.log("el correo corresponde");
+    navigate("/home_tecnico", {state: tecnico });
+
+    }else{
+      console.log("correo no corresponde");
+    }
+  }
  
   return (
     <>
@@ -66,7 +79,7 @@ export const Login = () => {
             <button
               type="submit"
               class="btn btn-outline-danger pop"
-              onClick={() => navigate("/home_tecnico", {state: tecnico })}
+              onClick={() => filtro()}
             >
               Ingresar
             </button>

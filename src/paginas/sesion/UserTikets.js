@@ -20,7 +20,7 @@ export const UserTikets = () => {
     let respons = await GetTickets({state})
       setTicket_close(respons.arr_close)
       setTicket_others(respons.arr_others)
-      console.log(respons)
+      // console.log(respons)
   }
 
   useEffect(() => {

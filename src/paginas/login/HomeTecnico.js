@@ -5,6 +5,8 @@ import { BsFillUnlockFill } from "react-icons/bs";
 import { BsArrowRepeat } from "react-icons/bs";
 import { GetTicketsTecnico } from "../../api/GetTicketTecnico.api";
 import { AsingTicket } from "../../api/AsingTicket.api";
+import { CerrarTicket } from "../../api/CerrarTicket.api";
+import { TicketProcess } from "../../api/TicketProcess.api";
 
 export const HomeTecnico = () => {
   const navigate = useNavigate();
@@ -15,22 +17,29 @@ export const HomeTecnico = () => {
   const [close_tickets, setClose_tickets] = useState([]);
   const [open_tickets, setOpen_tickets] = useState([]);
   const [my_tickets, setMy_tickets] = useState([]);
+  const [conclusion, setConclusion] = useState("");
+  const [id, setId] = useState("");
 
-  function seleccionador() {
-    switch (selectEstado) {
+  function seleccionador(id_, select) {
+    switch (select) {
       case "CERRADO":
+        setId(id_)
         setModal(!modal);
 
         break;
+      case "PROCESO":
+        ticket_process(id_,"PROCESO")
+        break;
 
+        case "ABIERTO":
+        ticket_process(id_,"ABIERTO")
+        break;
+          
       default:
         break;
     }
   }
 
-  const getAllTickets = async ()=>{
-      const arrlyst = await GetTicketsTecnico({state})
-  }
 
   const getAll_tickets = async () => {
     let respons = await GetTicketsTecnico({state})
@@ -53,13 +62,27 @@ export const HomeTecnico = () => {
     }
   }
 
+  async function cerrar_ticket(id_) {
+    let guardarRes = await CerrarTicket({conclusion,id_})
+    if (guardarRes.success) {
+      await alert(guardarRes.msg)
+      setModal(false)
+    }
+    console.log(conclusion,id_)
+  }
+  
+  async function ticket_process(id_,estado) {
+    console.log(id_);
+    let guardarEst = await TicketProcess({id_,estado})
+    if (guardarEst.success) {
+      await alert(guardarEst.msg)
+      getAll_tickets()
+    }
+  }
+
   useEffect(() => {
     seleccionador();
   }, [selectEstado]);
-
-  useEffect(() => {
-    getAllTickets()
-  }, []);
 
   useEffect(() => {
    getAll_tickets() 
@@ -162,14 +185,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                       <div>
                         <span className="small"><b>Asignado a:</b> {ticket.asignado}</span>
                       </div>
-                      <div className="">
-                        <button
-                          className="btn btn-outline-danger mt-1 small"
-                          type="submit"
-                        >
-                          Pedir Ticket
-                        </button>
-                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -202,7 +218,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
 
                     <div className="">
                       <span className="small"><b>Estado:</b></span>{" "}
-                      {selectEstado === "PROCESO" ? (
+                      {ticket.estado === "PROCESO" ? (
                         <BsArrowRepeat />
                       ) : (
                         <BsFillUnlockFill />
@@ -212,7 +228,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                           <b>Asignado a:</b> {ticket.asignado}
                         </span>
                       </div>
-                      <select
+                      {/* <select
                         class="form-select btn btn-outline-danger mt-1 small"
                         aria-label="Default select example"
                         name="selectEstado"
@@ -223,7 +239,20 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                         <option value="ABIERTO">Ticket Abierto</option>
                         <option value="PROCESO">Ticket en Proceso</option>
                         <option value="CERRADO">Cerrar Ticket</option>
-                      </select>
+                      </select> */}
+
+                        <div className="dropdown">
+                          <button className="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Modificar Ticket
+                          </button>
+                          <ul className="dropdown-menu btn btn-outline-danger" aria-labelledby="dropdownMenuButton1">
+                            <li style={{cursor:"pointer"}}><span className="dropdown-item" onClick={() => seleccionador(ticket._id,"ABIERTO")}>ABIERTO</span></li>
+                            <li style={{cursor:"pointer"}}><span className="dropdown-item" onClick={() => seleccionador(ticket._id,"PROCESO")}>PROCESO</span></li>
+                            <li style={{cursor:"pointer"}}><span className="dropdown-item" onClick={() => seleccionador(ticket._id,"CERRADO")}>CERRADO</span></li>
+                          </ul>                           
+                        </div>
+
+
                     </div>
                   </div>
                 </div>
@@ -287,7 +316,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                   <label for="message-text" class="col-form-label">
                     Conclusion Ticket:
                   </label>
-                  <textarea class="form-control" id="message-text"></textarea>
+                  <textarea class="form-control" id="message-text" onChange={(e) => setConclusion(e.target.value)}></textarea>
                 </div>
 
                 <div class="modal-footer">
@@ -301,6 +330,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                   <button
                     className="btn btn-outline-danger mt-1 "
                     type="submit"
+                    onClick={() => cerrar_ticket(id)}
                   >
                     Cerrar Ticket
                   </button>
