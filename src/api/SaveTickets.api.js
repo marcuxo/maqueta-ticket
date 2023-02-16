@@ -1,5 +1,5 @@
 import React from 'react'
-
+//Este api es para poder guardar los tickets y dejarlos como "Sin Asignar"
 export const SaveTickets = ({state, fecha, titulo, descripcion, urgencia, ubicacion}) => {
     // console.log(state, fecha, titulo, descripcion, urgencia, ubicacion);
     return new Promise(async (resolve, reject) => {

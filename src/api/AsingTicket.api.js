@@ -1,7 +1,7 @@
 import React from 'react'
-
+//este api es para asignar el ticket, id = identificador de cada ticket, state = es el nombre de usuario
 export const AsingTicket = ({id,state}) => {
-    console.log(id,state);
+    // console.log(id,state);
     return new Promise(async (resolve, reject) => {
         let query = await fetch("http://localhost:4080/asign_ticket",{
           method: 'POST',

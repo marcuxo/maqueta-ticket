@@ -1,26 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Filtro } from "../../api/Filtro.api";
 
 export const Login = () => {
   const navigate = useNavigate("");
+  //tecnico guarda el estado del tecnico
   const [tecnico, setTecnico] = useState("");
+  //passTecnico es para guardar la contraseña del tecnico
   const [passTecnico, setPassTecnico] = useState("");
-
+//funcion que filtra a los user por @Ariztia.com
   async function filtro() {
     // console.log('filtro',tecnico,passTecnico);
+    //se almacena la division("@") del correo del tecnico
     let correo = tecnico.split("@")
-    console.log(correo);
+    // console.log(correo);
+    //verificar si es correo corporativo
     if (correo[1]==="ariztia.com") {
       // console.log("el correo corresponde");
-    navigate("/home_tecnico", {state: tecnico });
+      //consulta al servidor si la credencial existe en la base de datos
+        let login_ = await Filtro({tecnico,passTecnico})
+        // console.log(login_);
+        //si la credencial es correcta 
+        if (login_.success) {
+          //redirige a home tecnico
+          navigate("/home_tecnico", {state: login_.user });
+        }else{
+          //si las credenciales no son correctas muestra alerta
+          alert("El usuario o la contraseña son incorrectos.")
+        }
 
     }else{
-      console.log("correo no corresponde");
+      alert("Correo no corresponde");
+
     }
   }
  
   return (
-    <>
+    <> {/* este es el login de tecnicos */}
       <div className="container-fluid fondo-total">
         <div className="row">
           <div className="col-6 text-center le">
@@ -67,7 +83,7 @@ export const Login = () => {
                 placeholder="Contraseña"
               />
             </div>
-
+              {/* boton para regresar al login de usuario */}
             <button
               className="btn btn-outline-danger pop"
               type="submit"
@@ -75,6 +91,7 @@ export const Login = () => {
             >
               Regresar
             </button>
+            {/* boton para ingresar al menu de tecnico */}
             <div className="space"></div>
             <button
               type="submit"

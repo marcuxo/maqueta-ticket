@@ -1,5 +1,5 @@
 import { BsCheckLg } from "react-icons/bs";
-
+//Este api es para obtener los tickets de cada usuario
 export const GetTickets = ({state}) => {
     // console.log(state);
     return new Promise(async (resolve, reject) => {

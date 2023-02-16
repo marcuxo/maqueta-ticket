@@ -1,5 +1,5 @@
 import React from 'react'
-
+//Este api es para que el ticket se pueda poner y mostrar en proceso 
 export const TicketProcess = ({id_,estado}) => {
     // console.log(id_);
     return new Promise(async (resolve, reject) => {

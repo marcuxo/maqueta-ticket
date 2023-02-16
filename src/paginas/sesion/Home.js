@@ -6,18 +6,20 @@ export const Home = () => {
   // almacena el estado del usuario
   const [Ususario, setUsusario] = useState("");
 
-  // verifica si ya hay un usuario guardado en el locar storage
   useEffect(() => {
+    //busca los datos en local storage(memoria local del navegador)
     let user = localStorage.getItem("usuario");
+    // verifica si ya hay un usuario guardado en el local storage
     if (user !== null) setUsusario(user);
   }, []);
 
-  //guarda y redirige a la session sel usuario
   const OnSubmit = async () => {
+    //guarda el usuario en local storage(memoria local del navegador)
     localStorage.setItem("usuario", Ususario);
+    //redirige a la session sel usuario
     navigate("/tickets", { state: Ususario });
   };
-
+{/* Este es el inicio de sesion del usuario cualquiera  */}
   return (
     <div className="container-fluid fondo-total">
       <div className="row">
@@ -53,6 +55,7 @@ export const Home = () => {
           >
             Ingresar
           </button>
+          {/* boton para entrar al inicio de tecnico */}
           <div className="space"></div>
           <button
             type="submit"

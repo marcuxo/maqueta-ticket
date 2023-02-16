@@ -1,8 +1,8 @@
 import React from 'react'
-
-export const Filtro = (tecnico,passtecnico) => {
+//Este api es para el filtro de usuario ariztia, tecnico = usuario de tecnico, passTecnico = es la contraseña de cada tecnico
+export const Filtro = ({tecnico,passTecnico}) => {
   return new Promise(async (resolve, reject) => {
-        let query = await fetch("http://localhost:4080/ticket.filtro",{
+        let query = await fetch("http://localhost:4080/ticket_filtro",{
           method: 'POST',
           headers: {
             'authorization': "paico2021",
@@ -10,11 +10,11 @@ export const Filtro = (tecnico,passtecnico) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            tecnico,passtecnico  
+            tecnico,passTecnico 
         })
         })
         let resp_ticket = await query.json();
-        console.log(tecnico.body, passtecnico.body);
+        // console.log(resp_ticket.body);
         
     
         if(resp_ticket.body){

@@ -1,5 +1,6 @@
-export const GetTicketsTecnico = ({state}) => {
-    // console.log(state);
+export const GetTicketsTecnico = ({state}) => {  
+  //Este api es para obtener la interfaz de cada tecnico, con sus tickets asignados 
+  // console.log(state);
     return new Promise(async (resolve, reject) => {
         let query = await fetch("http://localhost:4080/get_ticket_tecnico",{
           method: 'POST',

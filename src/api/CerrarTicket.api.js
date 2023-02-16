@@ -1,5 +1,5 @@
 import React from 'react'
-
+//Este api es para cerrar los tickets, conclusion = la conclusion de cada ticket que va en el modal, id_ = identificador de el ticket
 export const CerrarTicket = ({conclusion,id_}) => {
     // console.log(conclusion);
     return new Promise(async (resolve, reject) => {

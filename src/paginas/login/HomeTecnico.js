@@ -11,15 +11,23 @@ import { TicketProcess } from "../../api/TicketProcess.api";
 export const HomeTecnico = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
+  // selectEstado guarda el estado de el ticket
   const [selectEstado, setSelectEstado] = useState("");
+  // modal muestra el modal de cerrar ticket
   const [modal, setModal] = useState(false);
+  //all tickets muestra todos los tickets que no estan asigandos
   const [all_tickets, setAll_tickets] = useState([]);
+  //close tickets muestra todos los tickets que estan cerrados 
   const [close_tickets, setClose_tickets] = useState([]);
+  //open tickets muestra tosdos los tickets asignados y abiertos 
   const [open_tickets, setOpen_tickets] = useState([]);
+  //my tickets muestra todos mis tickets abiertos y/o en proceso
   const [my_tickets, setMy_tickets] = useState([]);
+  //conclusion guarda la conclusion de el ticket que se esta cerrando, se muestra en el modal
   const [conclusion, setConclusion] = useState("");
+  //id guarda el numero identificador de cada ticket
   const [id, setId] = useState("");
-
+//esta funcion dirige a funiones secundarias para mutar los tickets
   function seleccionador(id_, select) {
     switch (select) {
       case "CERRADO":
@@ -40,7 +48,7 @@ export const HomeTecnico = () => {
     }
   }
 
-
+//aqui se enlistan todos los tickets
   const getAll_tickets = async () => {
     let respons = await GetTicketsTecnico({state})
     // console.log(respons)
@@ -49,9 +57,8 @@ export const HomeTecnico = () => {
       setOpen_tickets(respons.arr_open_tickets)
       setMy_tickets(respons.arr_my_tickets)
 
-        //aqui mas de lo mismo, lo hice para ver si funcionaba, tampoco se si funciono
   }
-
+//esta funcion es la que asigna los tickets al tecnico
   const Asignar_ticket = async (id) => {
     let is_agregar = window.confirm('Asignarme ticket')
     if(is_agregar){
@@ -61,36 +68,36 @@ export const HomeTecnico = () => {
       alert('No te asignaste el ticket');
     }
   }
-
+//esta es la funcion que cierra los tickets
   async function cerrar_ticket(id_) {
     let guardarRes = await CerrarTicket({conclusion,id_})
     if (guardarRes.success) {
       await alert(guardarRes.msg)
       setModal(false)
+      getAll_tickets()
     }
     console.log(conclusion,id_)
   }
-  
+  //esta funcion cambia el estado de el ticket a en proceso
   async function ticket_process(id_,estado) {
-    console.log(id_);
+    // console.log(id_);
     let guardarEst = await TicketProcess({id_,estado})
     if (guardarEst.success) {
       await alert(guardarEst.msg)
       getAll_tickets()
     }
   }
-
+//ejecuta el codigo de la funcion seleccionador
   useEffect(() => {
     seleccionador();
   }, [selectEstado]);
-
+//ejecuta el codigo de la funcion getAllTickets
   useEffect(() => {
    getAll_tickets() 
   }, []);
-  //lo hice porque estaba tratando de hacer lo de arriba, la verdad de la milanesa no se si sirvio xd
 
   return (
-    <>
+    <> {/*este es el header de la pagina donde esta el nombre del tecnico*/}        
       <div className="container-fluid">
         <div className="row">
           <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
@@ -111,13 +118,13 @@ export const HomeTecnico = () => {
           </div>
         </div>
       </div>
+      {/* aqui empiezan todos los tickets */}
       <div className="container-fluid text-center espaciador">
         <div className="row align-items-start">
           <div className="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Tickets Sin Asignar</b>
-            {/* //Aqui comienzan los tickets sin guardar// */}
+            {/* Aqui comienzan los tickets sin asignar */}
 
-            {/* aqui me mostraba todo lo de un usuario pero despues con los filtros me dejo de mostrar y despues se fue todo a la verga XDDDDD */}
             <div className="col">
            {all_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
@@ -128,7 +135,7 @@ export const HomeTecnico = () => {
                     <div className="col-6"><b>Fecha: </b>
                     <br/>
                     {ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket.id_ticket}</div>
+                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
                     <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
@@ -138,8 +145,7 @@ export const HomeTecnico = () => {
                     <div className="col-12 mb-3">
                       <b>Descripcion:</b>{ticket.descripcion}
                     </div>
-{/* todo lo que es ticket.algo es por lo que estaba probando y se muestran solo los tickets del usuario que ingrese, si ingreso como tecnico con el nombre de Karen, se ven todos lo tickets de la karen pero si ingreso mi nombre no me salen todos los tickets, de ningun tipo :).
-igual puse el .map en todo lo que pude, osea fue solo al principio de las columnas (psdt: son las 2:42 y no se que mas hacer, no se nada mas y no se me ocurre nada, me quiero autoasesinar:)) */}
+
                     <div className="">
                       <button
                         className="btn btn-outline-danger mt-1 small"
@@ -157,7 +163,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
             
 
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-            <b>Asignados</b> {/*Aqui comienzan los tickets asignados*/}
+            <b>Asignados</b> {/*Aqui comienzan los tickets asignados de los demas tecnicos*/}
             <div className="col">
             {open_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
@@ -168,7 +174,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                     <div className="col-6"><b>Fecha Apertura: </b>
                     <br/>
                     {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket.id_ticket}</div>
+                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
                     <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
@@ -194,7 +200,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
           </div>
 
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
-            <b>Mis Asignados</b> {/* Aqui comienzan los tickets personales */}
+            <b>Mis Asignados</b> {/* Aqui comienzan los tickets asignados personales */}
             <div className="col">
             {my_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
@@ -205,7 +211,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                     <div className="col-6"><b>Fecha Apertura:</b>
                     <br/>
                     {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
+                    <div className="col-6"><b>Id:</b>{ticket._id.slice(0,9)}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
                   </div>
@@ -228,18 +234,6 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                           <b>Asignado a:</b> {ticket.asignado}
                         </span>
                       </div>
-                      {/* <select
-                        class="form-select btn btn-outline-danger mt-1 small"
-                        aria-label="Default select example"
-                        name="selectEstado"
-                        value={selectEstado}
-                        onChange={(e) => setSelectEstado(e.target.value)}
-                      >
-                        <option selected>Modificar Estado de Ticket</option>
-                        <option value="ABIERTO">Ticket Abierto</option>
-                        <option value="PROCESO">Ticket en Proceso</option>
-                        <option value="CERRADO">Cerrar Ticket</option>
-                      </select> */}
 
                         <div className="dropdown">
                           <button className="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -261,7 +255,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
           </div>
           <div class="col ticketcard rounded-4 border border-secondary mx-2 my-2">
             <b>Tickets Cerrados</b>
-            {/* Aqui comienzan los tickets que ya estan cerrados */}
+            {/* Aqui comienzan todos los tickets que ya estan cerrados */}
             <div className="col">
             {close_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
@@ -272,7 +266,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                     <div className="col-6"><b>Fecha De Cierre:</b>
                     <br/>
                     {ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id:</b>{ticket.id_ticket}</div>
+                    <div className="col-6"><b>Id:</b>{ticket._id.slice(0,9)}</div>
                     <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
                     <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
                   </div>
@@ -282,7 +276,8 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
                     <div className="col-12 mb-3">
                       <b>Descripcion:</b>{ticket.descripcion}
                     </div>
-
+                    <div><b>Conclusion:</b>{ticket.conclusion}</div>
+                      
                     <div className="">
                       <span className="small"><b>Estado:</b></span> <BsFillLockFill />
                     </div>
@@ -296,7 +291,7 @@ igual puse el .map en todo lo que pude, osea fue solo al principio de las column
       </div>
 
       {modal ? (
-        <>
+        <> {/* esto es todo el modal */}
           <div class="modal show " tabindex="-1" style={{ display: "block" }}>
             <div class="modal-dialog">
               <div class="modal-content">

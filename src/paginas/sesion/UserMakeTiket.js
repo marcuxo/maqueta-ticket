@@ -3,34 +3,45 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { SaveTickets } from "../../api/SaveTickets.api";
 
 export const UserMakeTiket = () => {
+  //es para mostrar las fechas de los tickets
   const [fecha, setFecha] = useState("");
+  //es para el titulo de los tickets
   const [titulo, setTitulo] = useState("");
+  //es para la descripcion de los tickets
   const [descripcion, setDescripcion] = useState("");
+  //es para denominar la urgencia de el ticket
   const [urgencia, setUrgencia] = useState("");
+  //es para mostrar la ubicacion de el ticket
   const [ubicacion, setUbicacion] = useState('');
   //permite navegar entre ventanas o vistas
   const navigate = useNavigate();
   //props de usuarios desde home
   const { state } = useLocation();
 
-  //logica para agregar ticket en base de datos
+  //funcion para agregar ticket en base de datos
   const SaveTiketUser = async () => {
+    //consulta al servidor que envia parametros para guardar tickets
     let ticket_save = await SaveTickets({state, fecha, titulo, descripcion, urgencia, ubicacion})
-    console.log(ticket_save);
+    // console.log(ticket_save);
+    //condicion que verifica si los datos fueron guardados 
     if (ticket_save.success) {
+      //muestra mensaje cuando se guarda el ticket
       await alert(ticket_save.msg)
+      //redirige a menu usuario
       navigate("/tickets", { state: state });
     }
      
     // console.log(fecha, titulo, descripcion, urgencia, state, ubicacion);
   };
-
+  //funcion que asigna fecha a un ticket recien creado
   function mutarFecha() {
+    //asigna fecha creacion
     let fechita = new Date();
     // console.log(fechita.toLocaleString());
+    //almacena fecha de creacion en fecha
     setFecha(fechita.toLocaleString());
   }
-
+  //dispara la funcion 'mutarFecha'
   useEffect(() => {
     setInterval(() => {
       mutarFecha();
@@ -38,7 +49,7 @@ export const UserMakeTiket = () => {
   }, []);
 
   return (
-    <>
+    <> {/* esto es el header de la pagina */}
       <div className="container-fluid">
         <div className="row">
           <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
@@ -59,7 +70,7 @@ export const UserMakeTiket = () => {
           </div>
         </div>
       </div>
-
+{/* aqui empieza todo lo que es necesario que ingrese el usuario para crear su ticket */}
       <div className="container-fluid espaciador">
         <div className="row">
           <div className="col-6 ticketcard rounded-4">
