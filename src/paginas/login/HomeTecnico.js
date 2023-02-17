@@ -143,7 +143,7 @@ export const HomeTecnico = () => {
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 mb-3">
-                      <b>Descripcion:</b>{ticket.descripcion}
+                      <b>Descripcion: </b>{ticket.descripcion}
                     </div>
 
                     <div className="">
@@ -182,14 +182,14 @@ export const HomeTecnico = () => {
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 mb-3">
-                      <b>Descripcion:</b>{ticket.descripcion}
+                      <b>Descripcion: </b>{ticket.descripcion}
                     </div>
 
                     <div className="">
-                      <span className="small"><b>Estado:</b></span>
+                      <span className="small"><b>Estado: </b></span>
                       <BsFillUnlockFill />
                       <div>
-                        <span className="small"><b>Asignado a:</b> {ticket.asignado}</span>
+                        <span className="small"><b>Asignado a: </b> {ticket.asignado}</span>
                       </div>
 
                     </div>
@@ -206,24 +206,24 @@ export const HomeTecnico = () => {
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12" key={ticket._id}>
                   <div className="row">
-                    <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura:</b>
+                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
+                    <div className="col-6"><b>Fecha Apertura: </b>
                     <br/>
                     {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id:</b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
+                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2"><b>Ubicacion: </b> {ticket.ubicacion}</div>
+                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 mb-3">
-                      <b>Descripcion:</b> {ticket.descripcion}
+                      <b>Descripcion: </b> {ticket.descripcion}
                     </div>
 
                     <div className="">
-                      <span className="small"><b>Estado:</b></span>{" "}
+                      <span className="small"><b>Estado: </b></span>{" "}
                       {ticket.estado === "PROCESO" ? (
                         <BsArrowRepeat />
                       ) : (
@@ -231,7 +231,7 @@ export const HomeTecnico = () => {
                       )}
                       <div>
                         <span className="small">
-                          <b>Asignado a:</b> {ticket.asignado}
+                          <b>Asignado a: </b> {ticket.asignado}
                         </span>
                       </div>
 
@@ -261,27 +261,27 @@ export const HomeTecnico = () => {
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
                   <div className="row">
-                    <div className="my-2"><b>Titulo:</b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario:</b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha De Cierre:</b>
+                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
+                    <div className="col-6"><b>Fecha De Cierre: </b>
                     <br/>
                     {ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id:</b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion:</b> {ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia:</b>{ticket.urgencia}</div>
+                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2"><b>Ubicacion: </b> {ticket.ubicacion}</div>
+                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="row">
                     <div className="col-12 mb-3">
-                      <b>Descripcion:</b>{ticket.descripcion}
+                      <b>Descripcion: </b>{ticket.descripcion}
                     </div>
-                    <div><b>Conclusion:</b>{ticket.conclusion}</div>
+                    <div><b>Conclusion: </b>{ticket.conclusion}</div>
                       
                     <div className="">
-                      <span className="small"><b>Estado:</b></span> <BsFillLockFill />
+                      <span className="small"><b>Estado: </b></span> <BsFillLockFill />
                     </div>
-                    <span className="small"><b>Cerrado Por:</b> {ticket.asignado}</span>
+                    <span className="small"><b>Cerrado Por: </b> {ticket.asignado}</span>
                   </div>
                 </div>
               </div>)}

@@ -115,9 +115,9 @@ export const UserTikets = () => {
                   <div className="row">
                     <div className="my-2"><b>Fecha De Creacion: </b>{ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
                     <div className="my-2"><b>Fecha De Cierre: </b>{ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
-                    <div className="mb-2"><b>Id:</b>{ticket._id.slice(0,9)}</div>
-                    <div className="mb-2"><b>Urgencia:</b>{ticket.urgencia}</div>
-                    <div className="mb-4"><b>Estado:</b>{ticket.estado==="CERRADO"?<BsFillLockFill/>:<BsFillUnlockFill/>}</div>
+                    <div className="mb-2"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="mb-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    <div className="mb-4"><b>Estado: </b>{ticket.estado==="CERRADO"?<BsFillLockFill/>:<BsFillUnlockFill/>}</div>
                   </div>
                 </div>
               </div>
