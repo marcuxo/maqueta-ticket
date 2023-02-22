@@ -37,6 +37,7 @@ export const UserTikets = () => {
         <div className="row">
           <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
             <h1 className="">
+              <img src="/img/logomant.png" className="imgg" />
               <img src="/img/logo_ariztia.png" className="imgg" alt="Logo" />
             </h1>
             <h5>
@@ -61,6 +62,7 @@ export const UserTikets = () => {
           </div>
         </div>
       </div>
+      <img src="/img/fondo.jpg" className="imgg fondop"/>
       <div className="container-fluid text-center espaciador">
         <div className="row align-items-start">
           <div className="col ticketcard rounded-4 border border-secondary mx-2 my-2">
@@ -69,7 +71,7 @@ export const UserTikets = () => {
               ticket_others.map(ticket=>
                 <div className="col-12" key={ticket._id}>
                   <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-                    <div className="col-12">
+                    <div className="col-6 der">
                       <div className="row">
                         <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
                         <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
@@ -79,12 +81,12 @@ export const UserTikets = () => {
                         <div className="mb-4"><b>Ubicacion: </b>{ticket.ubicacion}</div>
                       </div>
                     </div>
-                    <div className="col-12">
+                    <div className="col-6 der">
                       <div className="row">
                         <div className="my-2"><b>Fecha de Creacion: </b> {ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
-                        <div className="mb-2"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                        <div className="mb-2"><b>Urgencia: </b>{ticket.urgencia}</div>
-                        <div className="mb-4"><b>Estado: </b>{ticket.estado==="PROCESO"?<BsArrowRepeat/>:<BsFillUnlockFill/>}</div>
+                        <div className="my-2"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                        <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                        <div className="my-2"><b>Estado: </b>{ticket.estado==="PROCESO"?<BsArrowRepeat/>:<BsFillUnlockFill/>}</div>
                       </div>
                     </div>
                   </div>
@@ -101,23 +103,26 @@ export const UserTikets = () => {
             {ticket_close.map(ticket=>
               <div className="col-12"key={ticket._id}>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2">
-                <div className="col-12">
+                <div className="col-6 der">
                   <div className="row">
                     <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
                     <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
                     <div className="mb-2">
                       <b>Descripcion: </b>{ticket.descripcion}
                     </div>
-                    <div className="mb-4"><b>Ubicacion: </b>{ticket.ubicacion}</div>
+                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    
+                    <div className="mb-4"><b>Conclusion: </b>{ticket.conclusion}</div>
                   </div>
                 </div>
-                <div className="col-12">
+                <div className="col-6 der">
                   <div className="row">
-                    <div className="my-2"><b>Fecha De Creacion: </b>{ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
+                  <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
+                  <div className="my-2"><b>Fecha De Creacion: </b>{ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
                     <div className="my-2"><b>Fecha De Cierre: </b>{ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
-                    <div className="mb-2"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                    <div className="mb-2"><b>Urgencia: </b>{ticket.urgencia}</div>
-                    <div className="mb-4"><b>Estado: </b>{ticket.estado==="CERRADO"?<BsFillLockFill/>:<BsFillUnlockFill/>}</div>
+                    <div className="my-2"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                  
+                    <div className="my-4"><b>Estado: </b>{ticket.estado==="CERRADO"?<BsFillLockFill/>:<BsFillUnlockFill/>}</div>
                   </div>
                 </div>
               </div>

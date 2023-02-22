@@ -102,6 +102,7 @@ export const HomeTecnico = () => {
         <div className="row">
           <div className="fixed-top fondoo rounded-bottom-4 border border-secondary">
             <h1 className="">
+            <img src="/img/logomant.png" className="imgg" />
               <img src="/img/logo_ariztia.png" className="imgg" alt="Logo" />
             </h1>
             <h5>
@@ -129,20 +130,20 @@ export const HomeTecnico = () => {
            {all_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario: </b> {ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha: </b>
+                  <div className="row der">
+                    <div className="my-2 small"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2 small"><b>Usuario: </b> {ticket.usuario}</div>
+                    <div className="col-6 small"><b>Fecha: </b>
                     <br/>
                     {ticket.create_date?ticket.create_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    <div className="col-6 small"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2 small"><b>Ubicacion: </b>{ticket.ubicacion}</div>
+                    <div className="my-2 small"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="col-12 mb-3">
+                  <div className="row der">
+                    <div className="col-12 mb-3 small">
                       <b>Descripcion: </b>{ticket.descripcion}
                     </div>
 
@@ -168,25 +169,25 @@ export const HomeTecnico = () => {
             {open_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura: </b>
+                  <div className="row der">
+                    <div className="my-2 small"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2 small"><b>Usuario: </b>{ticket.usuario}</div>
+                    <div className="col-6 small"><b>Fecha Apertura: </b>
                     <br/>
                     {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion: </b>{ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    <div className="col-6 small"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2 small"><b>Ubicacion: </b>{ticket.ubicacion}</div>
+                    <div className="my-2 small"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="col-12 mb-3">
+                  <div className="row ">
+                    <div className="col-12 mb-3 small der">
                       <b>Descripcion: </b>{ticket.descripcion}
                     </div>
 
                     <div className="">
-                      <span className="small"><b>Estado: </b></span>
+                      <span className="small" alt="ABIERTO"><b>Estado: </b></span>
                       <BsFillUnlockFill />
                       <div>
                         <span className="small"><b>Asignado a: </b> {ticket.asignado}</span>
@@ -205,20 +206,20 @@ export const HomeTecnico = () => {
             {my_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3">
                 <div className="col-12" key={ticket._id}>
-                  <div className="row">
-                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha Apertura: </b>
+                  <div className="row der">
+                    <div className="my-2 small"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2 small"><b>Usuario: </b>{ticket.usuario}</div>
+                    <div className="col-6 small"><b>Fecha Apertura: </b>
                     <br/>
                     {ticket.start_date?ticket.start_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion: </b> {ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    <div className="col-6 small"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2 small"><b>Ubicacion: </b> {ticket.ubicacion}</div>
+                    <div className="my-2 small"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
                   <div className="row">
-                    <div className="col-12 mb-3">
+                    <div className="col-12 mb-3 small der">
                       <b>Descripcion: </b> {ticket.descripcion}
                     </div>
 
@@ -260,23 +261,23 @@ export const HomeTecnico = () => {
             {close_tickets.map(ticket=>
               <div className="row ticketcard rounded-4 border border-secondary mx-2 my-2 py-3"key={ticket._id}>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="my-2"><b>Titulo: </b>{ticket.titulo}</div>
-                    <div className="mb-2"><b>Usuario: </b>{ticket.usuario}</div>
-                    <div className="col-6"><b>Fecha De Cierre: </b>
+                  <div className="row der">
+                    <div className="my-2 small"><b>Titulo: </b>{ticket.titulo}</div>
+                    <div className="mb-2 small"><b>Usuario: </b>{ticket.usuario}</div>
+                    <div className="col-6 small"><b>Fecha De Cierre: </b>
                     <br/>
                     {ticket.close_date?ticket.close_date.split('T',1)[0]:null}</div>
-                    <div className="col-6"><b>Id: </b>{ticket._id.slice(0,9)}</div>
-                    <div className="my-2"><b>Ubicacion: </b> {ticket.ubicacion}</div>
-                    <div className="my-2"><b>Urgencia: </b>{ticket.urgencia}</div>
+                    <div className="col-6 small"><b>Id: </b>{ticket._id.slice(0,9)}</div>
+                    <div className="my-2 small"><b>Ubicacion: </b> {ticket.ubicacion}</div>
+                    <div className="my-2 small"><b>Urgencia: </b>{ticket.urgencia}</div>
                   </div>
                 </div>
                 <div className="col-12">
-                  <div className="row">
-                    <div className="col-12 mb-3">
+                  <div className="row ">
+                    <div className="col-12 mb-3 small der">
                       <b>Descripcion: </b>{ticket.descripcion}
                     </div>
-                    <div><b>Conclusion: </b>{ticket.conclusion}</div>
+                    <div className="small der"><b>Conclusion: </b>{ticket.conclusion}</div>
                       
                     <div className="">
                       <span className="small"><b>Estado: </b></span> <BsFillLockFill />
