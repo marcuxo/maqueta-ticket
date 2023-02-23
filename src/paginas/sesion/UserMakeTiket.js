@@ -170,9 +170,9 @@ export const UserMakeTiket = () => {
             <h5>
               <span className="badge text-bg-danger">Usuario: {state}</span>
             </h5>
-            <label>Urgencia: </label>
+            <label className="mt-1">Urgencia: </label>
             <select
-              className="form-select w-50 my-3"
+              className="form-select w-50 mb-3"
               aria-label="Default select example"
               name="urgencia"
               value={urgencia}
