@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Filtro_user } from "../../api/Filtro_user.api";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -11,14 +12,28 @@ export const Home = () => {
     let user = localStorage.getItem("usuario");
     // verifica si ya hay un usuario guardado en el local storage
     if (user !== null) setUsusario(user);
-  }, []);
+  }, []);//guarda el usuario en local storage(memoria local del navegador)
+   
 
-  const OnSubmit = async () => {
-    //guarda el usuario en local storage(memoria local del navegador)
-    localStorage.setItem("usuario", Ususario);
-    //redirige a la session sel usuario
-    navigate("/tickets", { state: Ususario });
-  };
+   async function filtro_user() {
+   
+    //se almacena la division("@") del correo del usuario
+    let usuario = Ususario.split("@") 
+    
+    //verificar si es correo corporativo
+    if (usuario[1]==="ariztia.com") {
+
+        // console.log("correo ok");
+        //redirige a la session sel usuario
+        navigate("/tickets", { state: Ususario });
+  
+    }else{
+      //si las credenciales no son correctas muestra alerta
+      alert("El correo no es correcto.")
+    }
+  
+} localStorage.setItem("usuario", Ususario);
+  
 {/* Este es el inicio de sesion del usuario cualquiera  */}
   return (
     <div className="container-fluid fondo-total">
@@ -51,7 +66,7 @@ export const Home = () => {
           <button
             type="submit"
             className="btn btn-outline-danger pop"
-            onClick={() => OnSubmit()}
+            onClick={() => filtro_user()}
           >
             Ingresar
           </button>

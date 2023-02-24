@@ -9,6 +9,7 @@ export const UserTikets = () => {
   const navigate = useNavigate();
   //props de usuarios desde home
   const { state } = useLocation();
+  console.log("ticket",state);
   //ticket_close es para ver y guardar los tickets cerrados de cada usuario
   const [ticket_close, setTicket_close] = useState([]);
   //ticket_others es para ver los tickets que creo el usuario
